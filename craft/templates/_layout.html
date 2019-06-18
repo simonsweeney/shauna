@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  
+  
+	<link rel='shortcut icon' type='image/x-icon' href='/favicon.png' />
+
+  
+	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+	<link rel="home" href="{{ siteUrl }}" />
+
+	<link rel="stylesheet" href="/css/main.css?v1">
+	
+	<script
+		  src="https://code.jquery.com/jquery-3.3.1.min.js"
+		  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		  crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+	{% set seg = craft.request.getSegment(1) %}
+	<div class="container">
+		
+			<h1 class="homelink {% if seg == 'info' %}homelink-info{% endif %}"><a href="{{ siteUrl }}">{{ siteName }}</a></h1>
+			
+			<div class="menu {% if seg == 'info' %}menu-info{% endif %}">
+				
+			<!-- 	<a class="{% if seg == 'my-work' %}active{% endif %}" href="/my-work">My Work</a>
+				<a class="{% if seg == 'our-work' %}active{% endif %}" href="/our-work">Our Work</a> -->
+				<a class="{% if seg == '' %}active{% endif %}" href="/">WORK</a>
+				<a class="{% if seg == 'info' %}active{% endif %}" href="/info">INFO</a>
+
+			</div>
+			
+			<div class="mobile">
+				<div class="mobile_button {% if seg == '' %}mobile_button-home{% endif %} {% if seg == 'info' %}mobile_button-info{% endif %}" >
+					&rarr;
+				</div>
+				
+				<div class="mobile_menu">
+				<!-- 	<a href="/my-work">My Work</a><br>
+					<a href="/our-work">Our Work</a><br> -->
+					<a href="/">WORK</a><br>
+					<a href="/info">INFO</a><br>
+					
+					<br>
+					<br>
+					
+					<div class="mobile_contact">
+			       		<a href="tel:353851466621">+353 85 1466621</a><br>
+        				<a href="mailto:hello@shaunabuckley.com">hello@shaunabuckley.com</a>
+					</div>
+					
+					<div class="mobile_close">
+						&larr;
+					</div>
+				</div>
+				
+				
+			</div>
+		
+		
+		<main role="main">
+			{% block content %}
+				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+			{% endblock %}
+		</main>
+
+
+		<script src="/js/menu.js"></script>
+
+	
+	</div>
+</body>
+</html>

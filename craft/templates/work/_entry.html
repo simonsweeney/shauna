@@ -1,0 +1,135 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+
+
+	{% if seg == 'my-work' %}
+		{% set section = 'myWork' %}
+	{% elseif seg  == 'our-work' %}
+		{% set section = 'ourWork' %}
+	{% endif %}
+	
+	
+    <article class="single">
+	 
+        <div class="row">
+            <div class="col-12">
+                {% set img = entry.headerImage.first() %}
+                <img src="{{ img.url }}" alt="">
+            </div>
+    	 </div>
+    	 
+        <div class="row">
+            <div class="col-5
+            {% if entry.titlePosition == "left" %}
+            off-1
+            {% elseif entry.titlePosition == "center" %}
+            off-3
+            {% elseif entry.titlePosition == "right" %}
+            off-6
+            {% endif %}
+            ">
+                <h1 class="single_title">{{ entry.title }}</h1>
+            </div>
+        </div>
+    
+        {% for block in entry.blocks %}
+        <div class="row single_block">
+            {% set type = block.type %}
+            {% if type == 'text' %}
+            
+            {% set align = block.alignment %}
+            <div class="single_copy col-5
+                {% if align == "left" %}
+                off-1
+                {% elseif align == "center" %}
+                off-3
+                {% elseif align == "right" %}
+                off-6
+                {% endif %}
+            ">
+                {{ block.copy }}
+            </div>
+            
+                
+            
+            {% elseif type == 'details' %}
+            
+            {% set align = block.alignment %}
+            
+            {% set color = block.color %}
+            
+            <div class="details">
+            <div class="col-2
+                {% if align == "left" %}
+                off-1
+                {% elseif align == "center" %}
+                off-3
+                {% elseif align == "right" %}
+                off-6
+                {% endif %}
+            " style="color: {{ color }}">
+                {{ block.leftColumn }}    
+            </div>
+            <div class="col-3" style="color: {{ color }}">
+                {{ block.rightColumn }}
+            </div>
+            </div>
+            
+            {% elseif type == 'image' %}
+            
+            {% set size = block.size %}
+            {% set align = block.alignment %}
+
+            <div class="
+            {% if size == 'medium' %}
+            col-8
+                {% if align == 'center' %}
+                off-2 
+                {% elseif align == 'right' %}
+                off-4
+                {% endif %}
+            {% elseif size == 'large' %}
+            col-10
+                {% if align == 'center' %}
+                off-1
+                {% elseif align == 'right' %}
+                off-2
+                {% endif %}
+            {% elseif size == 'full' %}
+            col-12
+            {% endif %}
+            ">
+                {% set img = block.file.first() %}
+                <img src="{{ img.url }}" alt="">
+            </div>
+            
+            {% elseif type == 'video' %}
+                
+                <div class="single_video">
+                {{ block.embedCode|raw }}
+                </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        
+        {% set params = craft.entries.section(section).order('title asc') %}
+        
+        {% set prevEntry = entry.getPrev(params) %}
+        {% set nextEntry = entry.getNext(params) %}
+        
+        <div class="row">
+            <div class="col-4 single_pagination single_pagination-left">
+                {% if prevEntry %}<a href="{{ prevEntry.url }}">&larr; Previous project</a>{% endif %}
+                &nbsp;
+            </div>
+            <div class="col-4 single_pagination-spacer">
+                &nbsp;
+            </div>
+            <div class="col-4 single_pagination single_pagination-right">
+                {% if nextEntry %}<a href="{{ nextEntry.url }}">Next project &rarr;</a>{% endif %}&nbsp;
+            </div>
+        </div>
+	</article>
+{% endblock %}

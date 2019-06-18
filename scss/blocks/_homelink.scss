@@ -1,0 +1,21 @@
+.homelink {
+    position: fixed;
+    z-index: 100;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 21px;
+    top: 15px;
+    left: 20px;
+    mix-blend-mode: difference;
+    color: white;
+    
+    @include phone {
+        top: 5px;
+        left: 10px;
+    }
+
+    &-info {
+        color: $orange;
+    }
+    
+}

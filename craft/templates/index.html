@@ -1,0 +1,44 @@
+{% extends "_layout" %}
+{% set title = "Work" %}
+
+{% block content %}
+
+
+   <div class="row work">
+
+{% set entry = craft.entries.section('work').first() %}
+	    
+
+	 
+	{% for entry in entry.projects %}
+	  	<a href="{{ entry.url }}">
+		<div class="work_item {% if loop.index % 2 == 0 %}work_item-right{% endif %}">
+	       {% set img = entry.headerImage.first() %}
+			<img src="{{ img.url }}" alt="">
+			
+			<div class="work_caption">
+			
+				<div class="work_title">
+				   {{ entry.title }}
+				</div>
+				<div class="work_year">
+	        		{{ entry.year }}
+				</div>
+			</div>
+			
+	  	</div>
+	  	</a>
+
+	   
+	
+	{% if loop.index % 2 == 0 %}
+		</div>
+		<div class="row">
+
+	{% endif %}
+	
+	{% endfor %}
+	
+	</div>
+	
+{% endblock %}

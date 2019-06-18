@@ -1,0 +1,44 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+
+<div class="info">
+
+    <div class="info_cols row">
+        <div class="col-4">
+            
+            {{ entry.bio }}
+            
+        </div>
+        <div class="col-4">
+            <h2>EDUCATION</h2>
+            {{ entry.education }}
+            
+            <h2>EXPERIENCE</h2>
+            {{ entry.experience }}
+            
+            <h2>FEATURES</h2>
+            {{ entry.features }}
+            
+            <h2>TALKS</h2>
+            {{ entry.talks }}
+        </div>
+        <div class="col-4">
+    
+            
+            <h2>AWARDS</h2>
+            {{ entry.awards }}
+            
+            <h2>CONTACT</h2>
+            {{ entry.contact }}
+            
+            <h2>ELSEWHERE</h2>
+            {{ entry.elsewhere }}
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+.work {
+    padding-top: 100px;
+    background-color: white;
+    
+    &_item {
+        // border-box: content-box;
+        float: left;
+        width: calc(50% - 10px);
+        margin-right: 20px;
+        margin-bottom: 50px;
+        font-family: "FoundersGrotesk", sans-serif;
+
+
+        @include phone {
+            width: 100%;
+            margin-right: 0;
+        }
+        
+        &:hover {
+            img {
+                -webkit-filter: invert(1);
+                filter: invert(1);
+            }
+            .work_caption {
+                color: $orange;
+            }
+        }
+    }
+    
+    &_item-right {
+        margin-right: 0;
+    }
+    
+    &_caption {
+        padding: 0 20px;    
+        text-transform: uppercase;
+        @include phone {
+            padding: 10px;
+        }
+    }
+    
+    &_title {
+        float: left;
+    }
+    
+    &_year {
+        float: right;
+    }
+    
+}

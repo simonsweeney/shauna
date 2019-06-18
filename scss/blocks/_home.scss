@@ -1,0 +1,85 @@
+.home {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    pointer-events: none;
+
+    &_text {
+        font-size: 8vw;
+        position: absolute;
+        z-index: 15;
+        mix-blend-mode: difference;
+        color: white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        line-height: 1;
+        width: 100%;
+        
+        @include phone {
+            font-size: 40px;
+        }
+        
+        a {
+            pointer-events: visible;
+            border-bottom: 5px dotted $orange;
+            
+            &:hover {
+                border-bottom: 0px dotted $orange;
+                color: $orange;
+            }
+        }
+    }
+    
+    &_info {
+        z-index: 100;
+        mix-blend-mode: difference;
+        color: white;
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        pointer-events: visible;
+
+        @include phone {
+            display: none;
+        }
+    }
+    
+    &_contact {
+        z-index: 100;
+        mix-blend-mode: difference;
+        color: white;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        pointer-events: visible;
+
+        @include phone {
+            display: none;
+        }
+    }
+    
+    &_images {
+        display: none;
+    }
+    
+    &_top, &_bottom {
+        position: fixed;
+        height: 50vh;
+        overflow: scroll;
+        width: 100%;
+        
+        img {
+            width: 100%;
+        }
+    }
+    
+    &_top {
+        top: 0;
+    }
+    
+    &_bottom {
+        bottom: 0;
+    }
+}

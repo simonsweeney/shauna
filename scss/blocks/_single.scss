@@ -1,0 +1,88 @@
+.single {
+    &_block {
+        margin-bottom: 4rem;
+        
+        @include phone {
+            margin-bottom: 1rem;
+        }
+    }
+    
+    &_title {
+        margin-top: 1em;
+        text-transform: uppercase;
+        
+        @include phone {
+            padding: 0 10px;
+        }
+    }
+    
+    &_copy {
+        p {
+            text-indent: 4em;
+            line-height: 1.25;
+            font-size: 1.1em;
+            
+            @include phone {
+                padding: 0 10px;
+            }
+           
+            &:first-of-type {
+                text-indent: 0;
+            }
+        }
+        
+        a {
+            border-bottom: 0;
+            
+            &:hover {
+                color: black;
+                border-bottom: 1px solid black;
+            }
+        }
+    }
+    
+    &_video {
+        iframe {
+            width: 100%;
+            height: 42vw;
+        }
+    }
+    
+    &_pagination {
+        padding: 20px;
+        
+        font-family: "FoundersGrotesk", sans-serif;
+        text-transform: uppercase;
+
+        @include phone {
+            padding: 5px 10px;  
+            padding-bottom: 15px;
+            &-spacer {
+                display: none;
+            }
+        }
+        
+        
+        
+        @include phone {
+            &-left {
+                width: 50%;       
+            }
+        }
+        
+        &-right {
+            text-align: right;
+            @include phone {
+                width: 50%;
+            }
+            
+            a {
+                padding-right: 20px;
+                
+                @include phone {
+                    padding-right: 5px;
+                }
+            }
+        }
+    }
+}

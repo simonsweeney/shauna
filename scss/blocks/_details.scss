@@ -1,0 +1,8 @@
+.details {
+    line-height: 1.25;
+    font-size: 0.9em;
+    
+    @include phone {
+        padding: 10px;
+    }
+}

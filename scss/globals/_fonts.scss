@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'FoundersGrotesk';
+  src: url('../fonts/FoundersGroteskWeb-Regular.eot');
+  src: url('../fonts/FoundersGroteskWeb.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/FoundersGroteskWeb-Regular.woff2') format('woff2'),
+  url('../fonts/FoundersGroteskWeb-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FoundersGrotesk';
+  src: url('../fonts/FoundersGroteskWeb-RegularItalic.eot');
+  src: url('../fonts/FoundersGroteskWeb-RegularItalic.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/FoundersGroteskWeb-RegularItalic.woff2') format('woff2'),
+  url('../fonts/FoundersGroteskWeb-RegularItalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'freight';
+  src: url('../fonts/FreightDispBook.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'freight';
+  src: url('../fonts/FreightDispBookItalic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
